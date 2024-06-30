@@ -1,4 +1,3 @@
----
 _schema-version: '3.1'
 ID: cap_boletim
 version: 1.0.0
@@ -25,4 +24,20 @@ modules:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
         properties:
           srv-url: ${default-url}
-    requires: []
+    requires:
+      - name: cap_boletim-db
+
+  - name: cap_boletim-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: cap_boletim-db
+
+resources:
+  - name: cap_boletim-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared

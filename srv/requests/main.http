@@ -1,0 +1,38 @@
+@server = http://localhost:4004
+@auth = Authorization: Basic alice:
+
+
+### Main.Alunos
+GET {{server}}/main/Alunos?$expand=avaliacoes
+Content-Type: application/json
+{{auth}}
+
+### Main.Alunos
+POST {{server}}/main/Alunos
+Content-Type: application/json
+{{auth}}
+
+{
+  "nome": "Renan",
+  "dataNasc": "2013-12-30"
+}
+
+### Main.Avaliacoes
+GET {{server}}/main/Avaliacoes?$expand=aluno
+Content-Type: application/json
+{{auth}}
+
+### Main.Avaliacoes
+POST {{server}}/main/Avaliacoes
+Content-Type: application/json
+{{auth}}
+
+{
+  "bimestre": "B21",
+  "nome": "Inglês",
+  "tipo": "Prova",
+  "peso": 1,
+  "nota": 8.00,
+  "aluno_ID": "5d58a90e-99e5-4791-8770-0a01d8b3da91"
+}
+
