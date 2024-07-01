@@ -1,4 +1,4 @@
-@server = http://localhost:4004
+@server = http://localhost:4006
 @auth = Authorization: Basic alice:
 
 
@@ -36,3 +36,23 @@ Content-Type: application/json
   "aluno_ID": "67c9b530-827c-4774-ad85-7e53a73e90c2"
 }
 
+
+
+### Main.Boletins
+GET {{server}}/main/Boletins
+Content-Type: application/json
+{{auth}}
+
+### Main.Boletins
+POST {{server}}/main/Boletins
+Content-Type: application/json
+{{auth}}
+
+{
+  "aluno": {
+    "ID": "5e1a4632-167e-4159-8cfa-20b46834fc3a"
+  },
+  "Bimestre": 3,
+  "nome": "Química",
+  "media": 91.6
+}
