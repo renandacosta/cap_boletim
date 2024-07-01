@@ -28,11 +28,11 @@ Content-Type: application/json
 {{auth}}
 
 {
-  "bimestre": "B21",
+  "bimestre": 1,
   "nome": "Inglês",
   "tipo": "Prova",
   "peso": 1,
-  "nota": 8.00,
-  "aluno_ID": "5d58a90e-99e5-4791-8770-0a01d8b3da91"
+  "nota": 8.50,
+  "aluno_ID": "67c9b530-827c-4774-ad85-7e53a73e90c2"
 }
 
