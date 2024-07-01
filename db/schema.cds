@@ -14,7 +14,7 @@ entity Alunos : cuid {
 
 entity Avaliacoes : cuid {
     bimestre : type.Bimestre         @description: 'Bimestre'            @assert.range: true;
-    nome     : type.Disciplina       @description: 'Nome da disciplina'  @assert.range: true;
+    disciplina : type.Disciplina       @description: 'Nome da disciplina'  @assert.range: true;
     tipo     : type.TipoAvaliacao    @description: 'Tipo da avaliação'   @assert.range: true;
     peso     : Integer               @description: 'Peso da avaliação'   @assert.range: [
         0,
@@ -30,9 +30,9 @@ entity Avaliacoes : cuid {
 
 @cds.persistence.skip
 entity Boletins {
-    aluno    : Association to Alunos;
-    Bimestre : type.Bimestre;
-    nome     : type.Disciplina;
-    media    : Decimal(4, 2);
+    key aluno_ID   : UUID;
+        bimestre   : type.Bimestre;
+        disciplina : type.Disciplina;
+        media      : Decimal(4, 2);
 
 }
