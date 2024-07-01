@@ -30,9 +30,9 @@ entity Avaliacoes : cuid {
 
 @cds.persistence.skip
 entity Boletins {
-    aluno    : Association to Alunos @assert.target;
-    Bimestre : type.Bimestre         @description: 'Bimestre'            @assert.range: true;
-    nome     : type.Disciplina       @description: 'Nome da disciplina'  @assert.range: true;
-    media    : Decimal(4, 2)         @description: 'Média';
+    aluno    : Association to Alunos;
+    Bimestre : type.Bimestre;
+    nome     : type.Disciplina;
+    media    : Decimal(4, 2);
 
 }

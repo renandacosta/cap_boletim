@@ -1,4 +1,4 @@
-@server = http://localhost:4006
+@server = http://localhost:4007
 @auth = Authorization: Basic alice:
 
 
@@ -14,6 +14,16 @@ Content-Type: application/json
 
 {
   "nome": "Renan",
+  "dataNasc": "2013-12-30"
+}
+
+### Main.Alunos
+PATCH  {{server}}/main/Alunos(7814ff38-2ea8-4afe-a9ff-da2781810038)
+Content-Type: application/json
+{{auth}}
+
+{
+  "nome": "João",
   "dataNasc": "2013-12-30"
 }
 
@@ -36,22 +46,17 @@ Content-Type: application/json
   "aluno_ID": "67c9b530-827c-4774-ad85-7e53a73e90c2"
 }
 
-
-
 ### Main.Boletins
 GET {{server}}/main/Boletins
 Content-Type: application/json
 {{auth}}
 
 ### Main.Boletins
-POST {{server}}/main/Boletins
+POST  {{server}}/main/Boletins
 Content-Type: application/json
 {{auth}}
 
 {
-  "aluno": {
-    "ID": "5e1a4632-167e-4159-8cfa-20b46834fc3a"
-  },
   "Bimestre": 3,
   "nome": "Química",
   "media": 91.6
