@@ -1,4 +1,7 @@
-
+function getAvaliacoesDoAluno(aluno_ID, avaliacoes) {
+    let result = avaliacoes.filter(avaliacao => (avaliacao.aluno_ID == aluno_ID));
+    return result;
+};
 function getBimestresDasAvaliacoes(avaliacoes) {
 
     const bimestres = [];
@@ -16,7 +19,8 @@ function getBimestresDasAvaliacoes(avaliacoes) {
 };
 
 function getAvaliacoesDoBimestre(bimestre, avaliacoes) {
-    return avaliacoes.filter(avaliacao => (avaliacao.bimestre = bimestre));
+     let result = avaliacoes.filter(avaliacao => (avaliacao.bimestre == bimestre));
+     return result;
 };
 
 function getDisciplinasDoBimestre(avaliacoes) {
@@ -37,7 +41,7 @@ function getDisciplinasDoBimestre(avaliacoes) {
 
 
 function getAvaliacoesDaDisciplina(disciplina, avaliacoes) {
-    return avaliacoes.filter(avaliacao => (avaliacao.disciplina = disciplina));
+    return avaliacoes.filter(avaliacao => (avaliacao.disciplina == disciplina));
 };
 
 function getMediaPondareda(avaliacoes) {
@@ -64,6 +68,7 @@ function getBoletimDaDisciplina(avaliacoes) {
 };
 
 module.exports = {
+    getAvaliacoesDoAluno,
     getBimestresDasAvaliacoes,
     getAvaliacoesDoBimestre,
     getDisciplinasDoBimestre,

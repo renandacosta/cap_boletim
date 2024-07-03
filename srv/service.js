@@ -20,9 +20,11 @@ module.exports = async (srv) => {
             alunoResponse = await SELECT.from(db.entities.Alunos);
         };
 
-        alunoResponse.forEach(async aluno => {
+        const avaliacoes = await SELECT.from(db.entities.Avaliacoes);
 
-            const avaliacoesDoAluno = await SELECT.from(db.entities.Avaliacoes).where({ "aluno_ID": aluno.ID });
+        alunoResponse.forEach(aluno => {
+
+            const avaliacoesDoAluno = model.getAvaliacoesDoAluno(aluno.ID, avaliacoes);
             const bimestresDasAvaliacoes = model.getBimestresDasAvaliacoes(avaliacoesDoAluno);
 
             bimestresDasAvaliacoes.forEach(bimestre => {
@@ -33,12 +35,19 @@ module.exports = async (srv) => {
                 disciplinasDoBimestre.forEach(disciplina => {
 
                     const avaliacoesDaDisciplina = model.getAvaliacoesDaDisciplina(disciplina, avaliacoesDoBimestre);
-                    boletim.pop(model.getBoletimDaDisciplina(avaliacoesDaDisciplina));
+                    boletim.push(model.getBoletimDaDisciplina(avaliacoesDaDisciplina));
 
                 });
             });
         });
-        return boletim;
+        
+        let result = JSON.stringify(boletim);
+        // result = result.replace("[", "{[");
+        // result = result.replace("]", "]}");
+        result = `{${result}}`;
+        console.log(result);
+        return result;
+
     });
 };
 
