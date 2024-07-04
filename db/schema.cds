@@ -31,8 +31,8 @@ entity Avaliacoes : cuid {
 @cds.persistence.skip
 entity Boletins {
     key aluno_ID   : UUID;
-        bimestre   : type.Bimestre;
-        disciplina : type.Disciplina;
+    key bimestre   : type.Bimestre;
+    key disciplina : type.Disciplina;
         media      : Decimal(4, 2);
 
 }

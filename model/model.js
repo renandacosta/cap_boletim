@@ -2,7 +2,7 @@ function getAvaliacoesDoAluno(aluno_ID, avaliacoes) {
     let result = avaliacoes.filter(avaliacao => (avaliacao.aluno_ID == aluno_ID));
     return result;
 };
-function getBimestresDasAvaliacoes(avaliacoes) {
+function getBimestresDasAvaliacoes(avaliacoes, filter) {
 
     const bimestres = [];
 
@@ -10,7 +10,7 @@ function getBimestresDasAvaliacoes(avaliacoes) {
 
         const existe = bimestres.indexOf(avaliacao.bimestre) >= 0;
 
-        if (!existe) {
+        if (!existe && (!filter || (!!filter && filter == avaliacao.bimestre))) {
             bimestres.push(avaliacao.bimestre);
         }
     });
@@ -19,11 +19,11 @@ function getBimestresDasAvaliacoes(avaliacoes) {
 };
 
 function getAvaliacoesDoBimestre(bimestre, avaliacoes) {
-     let result = avaliacoes.filter(avaliacao => (avaliacao.bimestre == bimestre));
-     return result;
+    let result = avaliacoes.filter(avaliacao => (avaliacao.bimestre == bimestre));
+    return result;
 };
 
-function getDisciplinasDoBimestre(avaliacoes) {
+function getDisciplinasDoBimestre(avaliacoes,filter) {
 
     const disciplinas = [];
 
@@ -31,7 +31,7 @@ function getDisciplinasDoBimestre(avaliacoes) {
 
         const existe = disciplinas.indexOf(avaliacao.disciplina) >= 0;
 
-        if (!existe) {
+        if (!existe && (!filter || (!!filter && filter == avaliacao.disciplina))) {
             disciplinas.push(avaliacao.disciplina);
         }
     });

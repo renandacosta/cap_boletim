@@ -47,7 +47,17 @@ Content-Type: application/json
 }
 
 ### Main.Boletins
-GET {{server}}/main/Boletins(bd66a1f6-7c25-4f0f-b852-42901d1dcdac)
+GET {{server}}/main/Boletins
+Content-Type: application/json
+{{auth}}
+
+### Main.Boletins
+GET {{server}}/main/Boletins(aluno_ID=bd66a1f6-7c25-4f0f-b852-42901d1dcdac,bimestre=1,disciplina='Matemática')
+Content-Type: application/json
+{{auth}}
+
+### Main.Boletins
+GET {{server}}/main/Boletins(aluno_ID=bd66a1f6-7c25-4f0f-b852-42901d1dcdac,disciplina='Matemática')
 Content-Type: application/json
 {{auth}}
 
