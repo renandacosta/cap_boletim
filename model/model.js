@@ -44,7 +44,7 @@ function getAvaliacoesDaDisciplina(disciplina, avaliacoes) {
     return avaliacoes.filter(avaliacao => (avaliacao.disciplina == disciplina));
 };
 
-function getMediaPondareda(avaliacoes) {
+function getMediaPonderada(avaliacoes) {
 
     const pesoTotal = avaliacoes.reduce((peso, avaliacao) => {
         return (peso + avaliacao.peso)
@@ -63,7 +63,7 @@ function getBoletimDaDisciplina(avaliacoes) {
         "aluno_ID": avaliacoes[0].aluno_ID,
         "bimestre": avaliacoes[0].bimestre,
         "disciplina": avaliacoes[0].disciplina,
-        "media": getMediaPondareda(avaliacoes),
+        "media": getMediaPonderada(avaliacoes),
     };
 };
 
